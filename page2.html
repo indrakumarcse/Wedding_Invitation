@@ -1,0 +1,1368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation - Ajay & Reshmi</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700&family=Cinzel:wght@400;600&family=Dancing+Script:wght@400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Cinzel', serif;
+            background: linear-gradient(135deg, #801616, #800000, #8B0000);
+            background-attachment: fixed;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        .page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            transition: all 0.8s ease-in-out;
+        }
+
+        /* First Page Styles */
+        .page-1 {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .background-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 160vw;
+            height: 160vh;
+            background-image: url('pattern2.png'), 
+                radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 215, 0, 0.1) 0%, transparent 50%);
+            background-size: cover, auto, auto;
+            background-position: center, 20% 80%, 80% 20%;
+            background-repeat: repeat, no-repeat, no-repeat;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.2;
+            transition: opacity 0.8s ease-in-out;
+            transform: translateY(-320px);
+        }
+        
+        .corner-decoration {
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-image: url('edge_pic2.png');
+            z-index: 2;
+            opacity: 0;
+            transform: scale(0.8);
+            animation: decorationFadeIn 1.5s ease-out forwards;
+            transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+        }
+
+        .top-left { 
+            top: -65px; 
+            left: -10px; 
+            animation-delay: 0.3s;
+        }
+        .top-right { 
+            top: -10px; 
+            right: -65px; 
+            transform: rotate(90deg) scale(0.8); 
+            animation-delay: 0.5s;
+        }
+        .bottom-left { 
+            bottom: -10px; 
+            left: -65px; 
+            transform: rotate(-90deg) scale(0.8); 
+            animation-delay: 0.7s;
+        }
+        .bottom-right { 
+            bottom: -65px; 
+            right: -10px; 
+            transform: rotate(180deg) scale(0.8); 
+            animation-delay: 0.9s;
+        }
+
+        @keyframes decorationFadeIn {
+            to {
+                opacity: 0.8;
+                transform: scale(1);
+            }
+        }
+
+        .top-right {
+            animation-name: decorationFadeInRotate90;
+        }
+        .bottom-left {
+            animation-name: decorationFadeInRotateNeg90;
+        }
+        .bottom-right {
+            animation-name: decorationFadeInRotate180;
+        }
+
+        @keyframes decorationFadeInRotate90 {
+            to {
+                opacity: 0.8;
+                transform: rotate(90deg) scale(1);
+            }
+        }
+
+        @keyframes decorationFadeInRotateNeg90 {
+            to {
+                opacity: 0.8;
+                transform: rotate(-90deg) scale(1);
+            }
+        }
+
+        @keyframes decorationFadeInRotate180 {
+            to {
+                opacity: 0.8;
+                transform: rotate(180deg) scale(1);
+            }
+        }
+        
+        .container {
+            text-align: center;
+            position: relative;
+            z-index: 3;
+            padding: 20px 15px;
+            max-width: 800px;
+            width: 90%;
+            margin: 0 auto;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+        }
+        
+        .main-content {
+            border: 2px solid rgba(255, 215, 0, 0.6);
+            border-radius: 25px;
+            padding: 25px 35px 25px;
+            background: rgba(139, 0, 0, 0.85);
+            box-shadow: 
+                0 0 25px rgba(255, 215, 0, 0.2),
+                inset 0 0 40px rgba(0, 0, 0, 0.3);
+            position: relative;
+            backdrop-filter: blur(15px);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: contentSlideIn 1.2s ease-out 0.8s forwards;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        @keyframes contentSlideIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .main-content::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: -1px;
+            right: -1px;
+            bottom: -1px;
+            background: linear-gradient(45deg, rgba(255, 215, 0, 0.3), rgba(255, 165, 0, 0.2), rgba(255, 215, 0, 0.3), rgba(255, 140, 0, 0.2));
+            border-radius: 25px;
+            z-index: -1;
+            opacity: 0.4;
+            animation: borderGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes borderGlow {
+            0% { opacity: 0.3; }
+            100% { opacity: 0.5; }
+        }
+
+        .logo-container {
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: logoFadeIn 1s ease-out 1.2s forwards;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.5));
+            border-radius: 50%;
+            border: 1px solid #FFD700;
+            padding: 8px;
+            background: rgba(255, 215, 0, 0.1);
+            animation: logoGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes logoGlow {
+            0% { 
+                box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+                transform: scale(1);
+            }
+            100% { 
+                box-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes logoFadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .greeting {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.2em;
+            font-weight: 700;
+            color: #FFD700;
+            text-shadow: 
+                0 0 15px rgba(255, 215, 0, 0.8),
+                2px 2px 6px rgba(0, 0, 0, 0.8);
+            margin-bottom: 15px;
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: textFadeIn 1s ease-out 1.5s forwards;
+        }
+
+        .invitation-text {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1em;
+            line-height: 1.5;
+            color: #F5F5DC;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+            margin: 15px 0;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: textFadeIn 1s ease-out 1.8s forwards;
+        }
+
+        .couple-names {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #FFA500;
+            text-shadow: 
+                0 0 10px rgba(255, 165, 0, 0.8),
+                2px 2px 4px rgba(0, 0, 0, 0.8);
+            margin: 10px 0;
+            letter-spacing: 2px;
+        }
+
+        .highlight-text {
+            color: #FFD700;
+            font-weight: 600;
+            text-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+        }
+
+        .signature {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.6em;
+            font-weight: 600;
+            color: #FFD700;
+            text-shadow: 
+                0 0 10px rgba(255, 215, 0, 0.7),
+                2px 2px 4px rgba(0, 0, 0, 0.8);
+            margin-top: 15px;
+            opacity: 0;
+            transform: translateX(-30px);
+            animation: signatureSlideIn 1s ease-out 2.1s forwards;
+        }
+
+        @keyframes signatureSlideIn {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes textFadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .decorative-divider {
+            width: 250px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #FFD700, #FFA500, #FFD700, transparent);
+            margin: 15px auto;
+            border-radius: 2px;
+            opacity: 0;
+            transform: scaleX(0);
+            animation: dividerExpand 1s ease-out 2.4s forwards;
+        }
+
+        @keyframes dividerExpand {
+            to {
+                opacity: 1;
+                transform: scaleX(1);
+            }
+        }
+
+        /* Second Page Styles */
+        .page-2 {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+            position: relative;
+            padding-top: 0px;
+            margin-top: 0px;
+        }
+
+        .page-2::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('bg2.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.09;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .page-2.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .page-2 .container {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-in-out 0.2s, transform 0.8s ease-in-out 0.2s;
+        }
+
+        .page-2.visible .container {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .top-decoration {
+            position: absolute;
+            top: -75px;
+            left: 0px;
+            width: 100%;
+            height: 600px;
+            background-image: url('top2.png');
+            background-size: contain;
+            background-position: center top;
+            background-repeat: no-repeat;
+            z-index: 1;
+            opacity: 0;
+            transform: translateY(0px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .page-2.visible .top-decoration {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.2s;
+        }
+
+        .lantern-decoration {
+            position: absolute;
+            top: 30px;
+            width: 240px;
+            height: 600px;
+            background-image: url('lantern1.png');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: 3;
+            opacity: 0;
+            transform: translateY(-30px) scale(0.8);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+
+        .lantern-left {
+            left: 25.5%;
+            transform: translateY(-30px) scale(0.8);
+        }
+
+        .lantern-right {
+            right: 25.5%;
+            transform: translateY(-30px) scale(0.8) scaleX(-1);
+        }
+
+        .page-2.visible .lantern-decoration {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            transition-delay: 0.8s;
+        }
+
+        .page-2.visible .lantern-left {
+            transform: translateY(0) scale(1);
+            transition-delay: 0.8s;
+        }
+
+        .page-2.visible .lantern-right {
+            transform: translateY(0) scale(1) scaleX(-1);
+            transition-delay: 1s;
+        }
+
+        .elephant-left {
+            position: absolute;
+            bottom: 50px;
+            left: 10px;
+            width: 150px;
+            height: 150px;
+            background-image: url('lastborder1.png');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: 3;
+            opacity: 0;
+            transform: translateY(50px) scale(0.6) scaleX(-1);
+            transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+        }
+
+        .elephant-right {
+            position: absolute;
+            bottom: 50px;
+            right: 10px;
+            width: 150px;
+            height: 150px;
+            background-image: url('lastborder1.png');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: 3;
+            opacity: 0;
+            transform: translateY(50px) scale(0.6);
+            transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+        }
+
+        .page-2.visible .elephant-left {
+            opacity: 1;
+            transform: translateY(0) scale(1) scaleX(1);
+            transition-delay: 2.8s;
+        }
+
+        .page-2.visible .elephant-right {
+            opacity: 1;
+            transform: translateY(0) scalex(-1);
+            transition-delay: 3s;
+        }
+
+        .second-page-content {
+            text-align: center;
+            padding: 0px 20px 150px;
+            color: #F5F5DC;
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .together-text {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1em;
+            font-style: italic;
+            color: #FFF8DC;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .together-mobile, .families-mobile {
+            display: inline;
+        }
+
+        @media (max-width: 768px) {
+            .together-mobile, .families-mobile {
+                display: block;
+                line-height: 1.4;
+            }
+        }
+
+        .page-2.visible .together-text {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.2s;
+        }
+
+        .bride-groom-names {
+            margin: 25px 0;
+        }
+
+        .bride-name, .groom-name {
+            font-family: 'Cinzel', serif;
+            font-size: 1.9em;
+            font-weight: 600;
+            color: #FFEFD5;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+            margin: 8px 0;
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .groom-name {
+            transform: translateX(30px);
+        }
+
+        .page-2.visible .bride-name {
+            opacity: 1;
+            transform: translateX(0);
+            transition-delay: 1.4s;
+        }
+
+        .page-2.visible .groom-name {
+            opacity: 1;
+            transform: translateX(0);
+            transition-delay: 1.6s;
+        }
+
+        .ampersand {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8em;
+            color: #F0E68C;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            font-style: italic;
+            margin: 0 10px;
+            opacity: 0;
+            transform: scale(0.5);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .page-2.visible .ampersand {
+            opacity: 1;
+            transform: scale(1);
+            transition-delay: 1.8s;
+        }
+
+        .cordially-text {
+            font-family: 'Cinzel', serif;
+            font-size: 1em;
+            font-style: italic;
+            color: #F5F5DC;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            line-height: 1.4;
+            margin: 20px 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .page-2.visible .cordially-text {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 2s;
+        }
+
+        .wedding-date-section {
+            margin: 30px 0;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            position: relative;
+        }
+
+        .date-decorative-lines {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+            gap: 15px;
+        }
+
+        .date-decorative-lines::before,
+        .date-decorative-lines::after {
+            content: '';
+            width: 200px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #F0E68C 20%, #F0E68C 80%, transparent);
+        }
+
+        .date-content {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3em;
+            color: #F0E68C;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            white-space: nowrap;
+            font-weight: 600;
+            padding: 0 20px;
+        }
+
+        .page-2.visible .wedding-date-section {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 2.2s;
+        }
+
+        .venue-section {
+            margin-top: -25px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .page-2.visible .venue-section {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 2.4s;
+        }
+
+        .at-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5em;
+            color: #F0E68C;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            font-style: italic;
+            margin: 15px 0 10px;
+        }
+
+        .venue-address {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1em;
+            color: #F5F5DC;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            line-height: 1.4;
+        }
+
+        .second-page-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #FFD700;
+            text-shadow: 
+                0 0 15px rgba(255, 215, 0, 0.8),
+                2px 2px 6px rgba(0, 0, 0, 0.8);
+            margin-bottom: 30px;
+            opacity: 0;
+            transform: translateY(-30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .page-2.visible .second-page-title {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.6s;
+        }
+
+        /* Third Page Styles */
+        .page-3 {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+            position: relative;
+            z-index: 4;
+        }
+
+        .page-3.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .page-3 .container {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-in-out 0.2s, transform 0.8s ease-in-out 0.2s;
+        }
+
+        .page-3.visible .container {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .venue-details-content {
+            text-align: center;
+            padding: 40px 30px;
+            color: #F5F5DC;
+            position: relative;
+            z-index: 2;
+        }
+
+        .venue-details-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #FFD700;
+            text-shadow: 
+                0 0 15px rgba(255, 215, 0, 0.8),
+                2px 2px 6px rgba(0, 0, 0, 0.8);
+            margin-bottom: 30px;
+            opacity: 0;
+            transform: translateY(-30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .page-3.visible .venue-details-title {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.4s;
+        }
+
+        .venue-image {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 15px;
+            border: 3px solid rgba(255, 215, 0, 0.6);
+            margin: 20px auto 30px;
+            display: block;
+            opacity: 0;
+            transform: translateY(30px) scale(0.9);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.4));
+            box-shadow: 
+                0 0 25px rgba(255, 215, 0, 0.3),
+                inset 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .page-3.visible .venue-image {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            transition-delay: 0.8s;
+        }
+
+        .venue-full-address {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2em;
+            color: #F5F5DC;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+            line-height: 1.6;
+            margin: 25px 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .page-3.visible .venue-full-address {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.2s;
+        }
+
+        .map-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #8B0000, #A0000A);
+            color: #FFD700;
+            text-decoration: none;
+            border-radius: 25px;
+            border: 2px solid rgba(255, 215, 0, 0.6);
+            font-family: 'Cinzel', serif;
+            font-size: 1.1em;
+            font-weight: 600;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+            box-shadow: 
+                0 5px 15px rgba(0, 0, 0, 0.3),
+                0 0 20px rgba(255, 215, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(30px) scale(0.9);
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .map-button:hover {
+            background: linear-gradient(45deg, #A0000A, #B50000);
+            box-shadow: 
+                0 8px 25px rgba(0, 0, 0, 0.4),
+                0 0 30px rgba(255, 215, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px) scale(1.05);
+            border-color: rgba(255, 215, 0, 0.8);
+        }
+
+        .map-button:active {
+            transform: translateY(0) scale(1);
+            box-shadow: 
+                0 3px 10px rgba(0, 0, 0, 0.3),
+                0 0 15px rgba(255, 215, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .page-3.visible .map-button {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            transition: opacity 0.8s ease-out 1.6s, transform 0.8s ease-out 1.6s;
+        }
+
+        .location-icon {
+            display: inline-block;
+            margin-right: 8px;
+            font-size: 1.2em;
+            animation: locationPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes locationPulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        /* Fade out/in classes for scroll animation */
+        .fade-out {
+            opacity: 0 !important;
+            transform: translateY(-30px) scale(0.95) !important;
+            pointer-events: none !important;
+        }
+
+        .corner-decoration.fade-out {
+            opacity: 0 !important;
+            transform: scale(0.3) !important;
+            pointer-events: none !important;
+        }
+
+        .corner-decoration.top-right.fade-out {
+            transform: rotate(90deg) scale(0.3) !important;
+        }
+
+        .corner-decoration.bottom-left.fade-out {
+            transform: rotate(-90deg) scale(0.3) !important;
+        }
+
+        .corner-decoration.bottom-right.fade-out {
+            transform: rotate(180deg) scale(0.3) !important;
+        }
+
+        .background-pattern.fade-out {
+            opacity: 0 !important;
+            transform: translateY(-320px) scale(1.1) !important;
+        }
+
+        .ganesha-image {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            margin: 10px auto -40px;
+            display: block;
+            opacity: 0;
+            transform: translateY(-20px) scale(0.8);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+        }
+
+        .page-2.visible .ganesha-image {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            transition-delay: 1.0s;
+        }
+
+        .couple-image {
+            width: 200px;
+            height: 200px;
+            object-fit: contain;
+            margin: -80px auto -190px;
+            display: block;
+            opacity: 0;
+            transform: translateY(30px) scale(0.9);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            filter: drop-shadow(0 4px 15px rgba(0, 0, 0, 0.4));
+            border-radius: 15px;
+        }
+
+        .page-2.visible .couple-image {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            transition-delay: 2.6s;
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            color: #FFD700;
+            text-align: center;
+            opacity: 0;
+            animation: scrollIndicatorFade 2s ease-in-out 3s forwards;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .scroll-indicator.hidden {
+            opacity: 0 !important;
+        }
+
+        @keyframes scrollIndicatorFade {
+            to {
+                opacity: 0.8;
+            }
+        }
+
+        .scroll-arrow {
+            font-size: 1.5em;
+            animation: bounce 2s infinite;
+            text-shadow: 
+                0 0 10px rgba(255, 215, 0, 0.8),
+                0 0 20px rgba(255, 215, 0, 0.6),
+                0 0 30px rgba(255, 215, 0, 0.4);
+            filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.8));
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .scroll-text {
+            font-family: 'Cinzel', serif;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px 10px;
+            }
+            
+            .main-content {
+                padding: 25px 15px;
+                margin: 10px 5px;
+                border-radius: 20px;
+            }
+            
+            .logo {
+                width: 120px;
+                height: 120px;
+            }
+
+            .logo-container {
+                margin-bottom: 15px;
+            }
+            
+            .greeting {
+                font-size: 2.0em;
+                margin-bottom: 12px;
+            }
+            
+            .invitation-text {
+                font-size: 1.1em;
+                line-height: 1.4;
+                margin: 12px 0;
+            }
+            
+            .couple-names {
+                font-size: 1.8em;
+                margin: 8px 0;
+                letter-spacing: 1px;
+                white-space: nowrap;
+                overflow: visible;
+            }
+            
+            .signature {
+                font-size: 1.5em;
+                margin-top: 12px;
+            }
+
+            .decorative-divider {
+                width: 180px;
+                margin: 12px auto;
+            }
+            
+            .corner-decoration {
+                width: 300px;
+                height: 300px;
+            }
+            
+            .top-left { 
+                top: -40px; 
+                left: -10px; 
+                transform: rotate(0deg) scale(1);
+            }
+
+            .top-right { 
+                top: -10px; 
+                right: -40px; 
+                transform: rotate(90deg) scale(1);
+            }
+
+            .bottom-left { 
+                bottom: -10px; 
+                left: -40px; 
+                transform: rotate(-90deg) scale(1);
+            }
+
+            .bottom-right { 
+                bottom: -40px; 
+                right: -10px; 
+                transform: rotate(180deg) scale(1);
+            }
+
+            .second-page-content {
+                padding: 0px 75px 180px;
+            }
+
+            .page-2 {
+                overflow: hidden;
+                height: 100vh; /* Constrain height */
+            }
+
+            .bride-name, .groom-name {
+                font-size: 1.8em;
+            }
+
+            .date-content {
+                font-size: 1.1em;
+            }
+
+            .date-decorative-lines {
+                gap: 15px;
+            }
+
+            .date-decorative-lines::before,
+            .date-decorative-lines::after {
+                max-width: 80px;
+            }
+
+            .second-page-title {
+                font-size: 2.2em;
+            }
+
+            .top-decoration {
+                height: 800px;
+                top: -75px;
+                left: -13px;
+                width: 106%;
+            }
+
+            .page {
+                width: 100%;
+                max-width: 100vw;
+                overflow-x: hidden;
+            }
+
+            .lantern-decoration {
+                width: 250px;
+                height: 700px;
+                top: -110px;
+            }
+
+            .lantern-left {
+                left: -25%;
+            }
+
+            .lantern-right {
+                right: -25%;
+            }
+
+            .scroll-indicator {
+                bottom: 15px;
+            }
+
+            .ganesha-image {
+                width: 150px;
+                height: 150px;
+                margin-top: -95px;
+            }
+
+            .couple-image {
+                width: 350px;
+                height: 350px;
+                margin: -110px auto -250px;
+                margin-left: calc(50% - 175px);
+            }
+
+            .elephant-decoration {
+                width: 280px;
+                height: 280px;
+                bottom: -65px;
+            }
+
+            .elephant-left {
+                left: -95px;
+            }
+
+            .elephant-right {
+                right: -95px;
+            }
+
+            .venue-details-content {
+                padding: 0px 10px;
+            }
+
+            .venue-details-title {
+                font-size: 2.2em;
+            }
+
+            .venue-image {
+                width: 280px;
+                height: 180px;
+            }
+
+            .venue-full-address {
+                font-size: 1.1em;
+                padding: 0 10px;
+            }
+
+            .map-button {
+                padding: 12px 25px;
+                font-size: 1em;
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            body {
+                scroll-snap-type: y proximity;
+            }
+
+            .page {
+                scroll-snap-align: start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background elements (fixed) -->
+    <div class="background-pattern" id="backgroundPattern"></div>
+    
+    <div class="corner-decoration top-left" id="cornerTL"></div>
+    <div class="corner-decoration top-right" id="cornerTR"></div>
+    <div class="corner-decoration bottom-left" id="cornerBL"></div>
+    <div class="corner-decoration bottom-right" id="cornerBR"></div>
+    
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator" id="scrollIndicator">
+        <div class="scroll-arrow">↓</div>
+    </div>
+    
+    <!-- Page 1 -->
+    <div class="page page-1" id="page1">
+        <div class="container" id="container1">
+            <div class="main-content">
+                <div class="logo-container">
+                    <img src="logo1.png" alt="Wedding Logo" class="logo">
+                </div>
+
+                <div class="greeting">Dear Indra,</div>
+                
+                <div class="invitation-text">
+                    With <span class="highlight-text">great joy and happiness</span>, I invite you to join us for the 
+                    <div class="couple-names">Ajay Reshmi Vivaah</div>
+                    My brother <span class="highlight-text">Ajay</span> is beginning a new chapter of his life with <span class="highlight-text">Reshmi</span>, and your presence will truly add <span class="highlight-text">warmth and love</span> to the celebration.
+                    <br><br>
+                    Please join us in showering them with blessings and making the occasion memorable.
+                </div>
+                
+                <div class="decorative-divider"></div>
+                
+                <div class="signature">
+                    With love,<br>
+                    Karthikeya
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Page 2 -->
+    <div class="page page-2" id="page2">
+        <div class="top-decoration"></div>
+        <div class="lantern-decoration lantern-left"></div>
+        <div class="lantern-decoration lantern-right"></div>
+        <div class="elephant-decoration elephant-left"></div>
+        <div class="elephant-decoration elephant-right"></div>
+        <div class="container">
+            <div class="second-page-content">
+                <img src="smallg1.png" alt="Ganesha" class="ganesha-image">
+                <div class="together-text">Together with<br>their families</div>
+                
+                <div class="bride-groom-names">
+                    <div class="bride-name">Ajay Sachin</div>
+                    <div class="ampersand">&</div>
+                    <div class="groom-name">Sri Reshmi</div>
+                </div>
+                
+                <div class="cordially-text">
+                    Happily invite you to their celebration on
+                </div>
+                
+                <div class="wedding-date-section">
+                    <div class="date-decorative-lines">
+                        <div class="date-content">OCT 10, 2025 | 11:36 PM</div>
+                    </div>
+                </div>
+                
+                <div class="venue-section">
+                    <div class="at-text">at</div>
+                    <div class="venue-address">
+                        Visakhapatnam
+                    </div>
+                </div>
+                <img src="couplenewedit2.png" alt="Couple" class="couple-image">
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 3 - Venue Details -->
+    <div class="page page-3" id="page3">
+        <div class="container">
+            <div class="main-content">
+                <div class="venue-details-content">
+                    <div class="venue-details-title">Venue Details</div>
+                    
+                    <img src="place.webp" alt="Wedding Venue" class="venue-image">
+                    
+                    <div class="venue-full-address">
+                    MRC Kakatiya <br> Convention Center, <br>
+                    53-23-1, P8P8+685, 11, Resapuvanipalem Rd, <br>
+                    Maddilapalem, Visakhapatnam, <br> 
+                    Andhra Pradesh, 530013
+                    </div>
+                    
+                    <a href="https://maps.app.goo.gl/C3XhNhv6q5iSgjMH8?g_st=aw" target="_blank" class="map-button">
+                        <span class="location-icon">📍</span>View on Google Maps
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let isScrolling = false;
+        let scrollTimeout;
+        const isMobile = window.innerWidth <= 768;
+        
+        // Elements to animate
+        const page1 = document.getElementById('page1');
+        const page2 = document.getElementById('page2');
+        const page3 = document.getElementById('page3');
+        const container1 = document.getElementById('container1');
+        const backgroundPattern = document.getElementById('backgroundPattern');
+        const cornerDecorations = [
+            document.getElementById('cornerTL'),
+            document.getElementById('cornerTR'),
+            document.getElementById('cornerBL'),
+            document.getElementById('cornerBR')
+        ];
+        const scrollIndicator = document.getElementById('scrollIndicator');
+
+        function handleScroll() {
+            const scrollTop = window.pageYOffset;
+            const windowHeight = window.innerHeight;
+            
+            // Calculate scroll positions for three pages
+
+            const firstPageEnd = windowHeight * 0.2;
+            const secondPageStart = windowHeight * 0.2;
+            const secondPageEnd = isMobile ? windowHeight * 1.8 : windowHeight * 1.4; // Slower on mobile
+            const thirdPageStart = isMobile ? windowHeight * 1.8 : windowHeight * 1.4;
+            
+            if (scrollTop <= 50) {
+                // At top - show first page
+                scrollIndicator.classList.remove('hidden');
+                container1.classList.remove('fade-out');
+                backgroundPattern.classList.remove('fade-out');
+                cornerDecorations.forEach(el => {
+                    if (el) el.classList.remove('fade-out');
+                });
+                page2.classList.remove('visible');
+                page3.classList.remove('visible');
+                
+            } else if (scrollTop > 50 && scrollTop < secondPageEnd) {
+                // Between first and second page
+                scrollIndicator.classList.add('hidden');
+                
+                if (scrollTop > firstPageEnd) {
+                    // Show second page
+                    page2.classList.add('visible');
+                    
+                    // Fade out first page elements
+                    container1.classList.add('fade-out');
+                    backgroundPattern.classList.add('fade-out');
+                    cornerDecorations.forEach(el => {
+                        if (el) el.classList.add('fade-out');
+                    });
+                }
+                
+                // Hide third page
+                page3.classList.remove('visible');
+                
+            } else if (scrollTop >= secondPageEnd) {
+                // At third page
+                scrollIndicator.classList.add('hidden');
+                
+                // Fade out second page
+                page2.classList.remove('visible');
+                
+                // Show third page
+                page3.classList.add('visible');
+                
+                // Show background elements for third page
+                backgroundPattern.classList.remove('fade-out');
+                cornerDecorations.forEach(el => {
+                    if (el) el.classList.remove('fade-out');
+                });
+            }
+        }
+
+        // Throttled scroll handler
+        function throttledScroll() {
+            if (!isScrolling) {
+                requestAnimationFrame(() => {
+                    handleScroll();
+                    isScrolling = false;
+                });
+                isScrolling = true;
+            }
+        }
+
+        // Event listeners
+        window.addEventListener('scroll', throttledScroll);
+        
+        // Smooth scroll to second page when scroll indicator is clicked
+        scrollIndicator.addEventListener('click', () => {
+            page2.scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // Initial call to set correct state
+        setTimeout(() => {
+            handleScroll();
+        }, 100);
+    </script>
+</body>
+</html>
