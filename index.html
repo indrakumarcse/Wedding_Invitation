@@ -204,7 +204,7 @@
             transform: translateX(-50%) translateY(-50px);
             width: 850px;
             height: 500px;
-            background-image: url('garfield1.png');
+            background-image: url('garfield2.png');
             background-size: 100% 100%;
             background-repeat: no-repeat;
             background-position: center top;
@@ -439,7 +439,7 @@
                 }
                 
                 .background-pattern {
-                    background-size: 235% auto, auto, auto;
+                    background-size: 270% auto, auto, auto;
                     opacity: 0.1; /* Make it more subtle on mobile */
                     top: -1px;
                 }
@@ -447,6 +447,32 @@
                 .loading-lotus {
                     transform: translateX(15%);
                 }
+
+                    .corner-flower {
+                        width: 350px;  /* Even smaller for very small screens */
+                        height: 350px;
+                        opacity: 0.4;  /* More subtle */
+                    }
+
+                    .top-left { 
+                        top: -140px;
+                        left: -110px;
+                    }
+
+                    .top-right { 
+                        top: -110px;
+                        right: -140px;
+                    }
+
+                    .bottom-left { 
+                        bottom: -110px;
+                        left: -140px;
+                    }
+
+                    .bottom-right { 
+                        bottom: -140px;
+                        right: -110px;
+                    }
 
         }
     </style>
@@ -493,7 +519,7 @@
         
         <div class="main-frame" id="mainFrame">
             <div class="ganesha-container" id="ganeshaContainer">
-                <img src="ganesha1.png" alt="Lord Ganesha" class="ganesha-image" id="ganeshaImage">
+                <img src="ganesha3.png" alt="Lord Ganesha" class="ganesha-image" id="ganeshaImage">
             </div>
             
             <div class="sanskrit-text" id="sanskritText"></div>
